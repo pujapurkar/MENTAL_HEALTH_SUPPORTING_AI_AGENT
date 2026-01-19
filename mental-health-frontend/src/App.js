@@ -93,7 +93,11 @@ function App() {
     setIsLoading(true); 
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/chat', { message: currentInput });
+      const response = await axios.post(
+  'https://mental-health-supporting-ai-agent.onrender.com/chat',
+  { message: currentInput }
+);
+
       const botMsg = { text: response.data.reply, sender: 'bot' };
       setMessages(prev => [...prev, botMsg]);
       
